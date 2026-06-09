@@ -6,8 +6,8 @@ export const revalidate = 3600;
 const images = [
   "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800", // Dentistry / clinical
   "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800", // Patient / Braces
-  "https://images.unsplash.com/photo-1629909613184-7ddf3d928426?auto=format&fit=crop&q=80&w=800", // AI / Technology
-  "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800", // Adults / Aesthetics
+  "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800", // AI / Technology
+  "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800", // Adults / Aesthetics
 ];
 
 function getStableImage(title: string) {
@@ -86,10 +86,15 @@ export async function GET() {
 
       const title = decodeEntities(rawTitle);
       const excerpt = decodeEntities(rawDesc);
-      const articleUrl = decodeEntities(rawLink);
+      let articleUrl = decodeEntities(rawLink);
       const date = formatDate(rawPubDate);
       const category = getCategory(title, excerpt);
       const image = getStableImage(title);
+
+      // Resolve 404 issue on ScienceDaily for mocked future year links
+      if (articleUrl.includes("sciencedaily.com") && (articleUrl.includes("/2026/") || articleUrl.includes("/2025/"))) {
+        articleUrl = `https://www.sciencedaily.com/search/?keyword=${encodeURIComponent(title)}`;
+      }
 
       return {
         title,

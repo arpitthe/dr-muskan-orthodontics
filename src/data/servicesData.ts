@@ -34,7 +34,7 @@ export const servicesData: ServiceData [] = [
     price: "₹60,000 - ₹1,50,000",
     fullDescription: "Clear Aligner therapy is the modern standard for aesthetic teeth straightening. These custom-made, transparent trays gradually shift your teeth into their ideal position without the need for traditional metal brackets or wires. Ideal for professionals and students alike, they offer a discreet way to achieve a perfect smile while maintaining your comfort and lifestyle.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/clear-aligners.jpg",
     benefits: [
       "Virtually invisible aesthetics",
       "Removable for eating and hygiene",
@@ -56,7 +56,7 @@ export const servicesData: ServiceData [] = [
     price: "₹30,000 - ₹55,000",
     fullDescription: "Traditional metal braces remain the most versatile and powerful tool in orthodontics. Utilizing high-grade stainless steel, these braces are capable of correcting the most complex dental and jaw alignments. Modern advancements have made them smaller, more comfortable, and more efficient than ever before, ensuring a result that is both functional and beautiful.",
     icon: Settings,
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/metal-braces.jpg",
     benefits: [
       "Unmatched precision and control",
       "Suitable for all age groups",
@@ -78,7 +78,7 @@ export const servicesData: ServiceData [] = [
     price: "₹40,000 - ₹70,000",
     fullDescription: "Ceramic braces offer the mechanical strength of traditional braces with the added benefit of aesthetic discretion. The brackets are made of a clear or tooth-colored polycrystalline material that blends seamlessly with your natural tooth enamel. This is a popular choice for adults and teenagers who require precise clinical correction but prefer a less noticeable appearance during treatment.",
     icon: ShieldCheck,
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/ceramic-braces.jpg",
     benefits: [
       "Subtle, tooth-colored aesthetics",
       "High clinical effectiveness",
@@ -100,7 +100,7 @@ export const servicesData: ServiceData [] = [
     price: "₹20,000 - ₹45,000",
     fullDescription: "Digital Smile Design (DSD) is where science meets art. We utilize high-resolution digital photography and video to analyze your facial proportions, dental structures, and lip dynamics. By creating a 'virtual mock-up', we allow you to see and even 'test drive' your new smile before any treatment begins, ensuring the final result is in perfect harmony with your unique personality.",
     icon: Smile,
-    image: "https://images.unsplash.com/photo-1629909613184-7ddf3d928426?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/smile-design.jpg",
     benefits: [
       "Visualized treatment outcomes",
       "Facial harmony analysis",
@@ -122,7 +122,7 @@ export const servicesData: ServiceData [] = [
     price: "₹500",
     fullDescription: "Your journey to excellence begins with a comprehensive orthodontic consultation. This is more than just an exam; it's an in-depth clinical discovery. We utilize digital cephalometric analysis, 3D intraoral scans, and clinical photography to build a complete biological profile, allowing us to discuss your goals and provide a tailored roadmap to your perfect smile.",
     icon: Stethoscope,
-    image: "https://images.unsplash.com/photo-1576091160550-217359f4ecf8?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/consultation.jpg",
     benefits: [
       "Expert clinical diagnosis",
       "Advanced 3D imaging",
@@ -144,7 +144,7 @@ export const servicesData: ServiceData [] = [
     price: "₹25,000 - ₹50,000",
     fullDescription: "Dentofacial orthopedics is a specialized branch of orthodontics that focuses on guiding the growth and development of the facial structure. By treating patients during their growth phases, we can use functional appliances to normalize the relationship between the upper and lower jaws, creating a balanced facial profile and ensuring adequate space for erupting permanent teeth.",
     icon: Activity,
-    image: "https://images.unsplash.com/photo-1588776813677-77aaf55827c3?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/dentofacial-orthopedics.jpg",
     benefits: [
       "Correction of jaw imbalances",
       "Guiding facial development",
@@ -166,7 +166,7 @@ export const servicesData: ServiceData [] = [
     price: "₹5,000 - ₹12,000",
     fullDescription: "The completion of orthodontic treatment is just the beginning of your smile's longevity. Retainers are essential for protecting your investment, preventing 'relapse' by holding your teeth in their new, ideal positions while the surrounding bone and gums stabilize. We provide a range of fixed and removable options tailored to your clinical needs and daily lifestyle.",
     icon: RefreshCcw,
-    image: "https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/retainers.jpg",
     benefits: [
       "Guaranteed smile stability",
       "Custom-fit for ultimate comfort",
@@ -188,7 +188,7 @@ export const servicesData: ServiceData [] = [
     price: "₹2,500 - ₹7,500",
     fullDescription: "Preventive care is the cornerstone of lifelong oral health. By identifying potential orthodontic issues early—sometimes as young as age 7—we can implement strategies to manage space and growth, often reducing or eliminating the need for complex treatment later. This includes monitoring eruption patterns, managing oral habits, and ensuring general dental health remains optimal.",
     icon: Users,
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/preventive-care.jpg",
     benefits: [
       "Early detection of bite issues",
       "Managing space for permanent teeth",

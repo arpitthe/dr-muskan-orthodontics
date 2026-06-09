@@ -12,23 +12,23 @@ const posts = [
     category: "Orthodontics",
     date: "May 15, 2026",
     excerpt: "Understanding the key differences, pros, and cons of traditional braces and modern clear aligners.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
-    articleUrl: "https://www2.aaoinfo.org/blog/parent-s-guide-to-clear-aligners/"
+    image: "/images/clear-aligners.jpg",
+    articleUrl: "https://aaoinfo.org/?s=parents+guide+to+clear+aligners"
   },
   {
     title: "Maintaining Oral Hygiene with Braces",
     category: "Smile Care",
     date: "April 28, 2026",
     excerpt: "A comprehensive guide on how to keep your teeth and gums healthy while wearing orthodontic appliances.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
-    articleUrl: "https://www2.aaoinfo.org/blog/brushing-and-flossing-with-braces/"
+    image: "/images/ceramic-braces.jpg",
+    articleUrl: "https://aaoinfo.org/?s=brushing+and+flossing+with+braces"
   },
   {
     title: "The Science of Smile Design",
     category: "Technology",
     date: "April 10, 2026",
     excerpt: "How digital workflows and facial analysis help us create the perfectly balanced smile for our patients.",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
+    image: "/images/preventive-care.jpg",
     articleUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4606515/"
   },
 ];
@@ -39,23 +39,23 @@ const liveUpdates = [
     category: "Clinical Guideline",
     date: "June 2026",
     excerpt: "Early evaluation allows Dr. Singh to detect subtle problems with jaw growth and emerging teeth while baby teeth are still present. Early detection helps prevent complex treatments later.",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
-    articleUrl: "https://www2.aaoinfo.org/clinical-guidelines/"
+    image: "/images/preventive-care.jpg",
+    articleUrl: "https://aaoinfo.org/?s=clinical+guidelines"
   },
   {
     title: "Optimal Hygiene Workflows for Clear Aligner Systems",
     category: "Patient Tip",
     date: "May 2026",
     excerpt: "Discover the golden rules of Aligner hygiene. Learn how to clean your trays, avoid staining, and maintain gum health during your transformation cycle.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
-    articleUrl: "https://www2.aaoinfo.org/blog/parent-s-guide-to-clear-aligners/"
+    image: "/images/clear-aligners.jpg",
+    articleUrl: "https://aaoinfo.org/?s=parents+guide+to+clear+aligners"
   },
   {
     title: "Artificial Intelligence in Cephalometric and Aligner Planning",
     category: "Medical Tech",
     date: "April 2026",
     excerpt: "How deep learning algorithms and convolutional neural networks are enhancing diagnostic accuracy, landmark tracing, and treatment velocity forecasting in orthodontics.",
-    image: "https://images.unsplash.com/photo-1629909613184-7ddf3d928426?auto=format&fit=crop&q=80&w=800",
+    image: "/images/smile-design.jpg",
     articleUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10153835/"
   },
   {
@@ -63,8 +63,8 @@ const liveUpdates = [
     category: "Industry News",
     date: "March 2026",
     excerpt: "Over 25% of orthodontic patients are adults. Explore how modern invisible aligners and ceramic solutions fit seamlessly into professional lifestyles.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
-    articleUrl: "https://www2.aaoinfo.org/blog/orthodontic-treatment-for-adults/"
+    image: "/images/ceramic-braces.jpg",
+    articleUrl: "https://aaoinfo.org/?s=orthodontic+treatment+for+adults"
   }
 ];
 
@@ -117,25 +117,27 @@ export function Blog() {
   return (
     <section id="blog" className="relative py-32 bg-premium-navy overflow-hidden">
       {/* Cinematic Overlays */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none mix-blend-overlay bg-[url('/textures/noise.svg')]" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8 relative border-b border-white/5 pb-12">
-          <div className="max-w-2xl">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5 mb-6">
-              <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Exclusive Insights</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8 relative border-b border-white/5 pb-12 text-center lg:text-left">
+          <div className="max-w-2xl mx-auto lg:mx-0">
+            <div className="flex justify-center lg:justify-start mb-6">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5">
+                <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Exclusive Insights</span>
+              </div>
             </div>
             <h3 className="text-5xl lg:text-7xl font-premium-serif text-white tracking-tight leading-[0.9]">
               Dental <span className="serif-italic font-light text-premium-gold">Blogs</span>
             </h3>
-            <p className="text-sm font-light text-white/50 tracking-wide mt-6 leading-relaxed max-w-lg">
+            <p className="text-sm font-light text-white/50 tracking-wide mt-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
               Explore professional clinical cases, smile design guidelines, and real-time orthodontic research updates.
             </p>
           </div>
 
           {/* Interactive Filtering Tabs */}
-          <div className="flex flex-wrap gap-3 p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/5 self-start lg:self-end items-center relative z-20">
+          <div className="flex flex-wrap gap-3 p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/5 mx-auto lg:mx-0 lg:self-end items-center relative z-20 justify-center">
             <button
               onClick={() => setActiveTab("all")}
               className={`px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-500 cursor-pointer ${

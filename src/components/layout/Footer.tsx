@@ -14,6 +14,8 @@ import {
   Globe
 } from "lucide-react";
 
+import { usePathname } from "next/navigation";
+
 const socialLinks = [
   { name: "Instagram", icon: Instagram, href: "#" },
   { name: "LinkedIn", icon: Linkedin, href: "#" },
@@ -29,6 +31,11 @@ const navigationLinks = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname && pathname.startsWith("/services/")) {
+    return null;
+  }
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {

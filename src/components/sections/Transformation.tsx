@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { MoveHorizontal, Sparkles, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { scrollToSection } from "@/lib/scrollTo";
 
 const GalleryItem = ({ title, before, after }: { title: string, before: string, after: string }) => {
@@ -27,26 +28,32 @@ const GalleryItem = ({ title, before, after }: { title: string, before: string, 
       >
         {/* After Image */}
         <div className="absolute inset-0">
-          <div 
-            className="w-full h-full bg-cover bg-center" 
-            style={{ backgroundImage: `url(${after})`, backgroundColor: '#0A1128' }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center text-white/[0.03] font-bold uppercase tracking-[0.6em] text-4xl select-none">
-              Singh Artistry
-            </div>
+          <Image 
+            src={after} 
+            alt="After treatment"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 flex items-center justify-center text-white/[0.03] font-bold uppercase tracking-[0.6em] text-4xl select-none z-10">
+            Singh Artistry
           </div>
         </div>
 
         {/* Before Image (Transitioning) */}
         <div 
-          className="absolute inset-0 border-r border-premium-gold/50"
+          className="absolute inset-0 border-r border-premium-gold/50 z-20"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
-          <div 
-            className="w-full h-full bg-cover bg-center brightness-[0.85] saturate-[0.8]" 
-            style={{ backgroundImage: `url(${before})`, backgroundColor: '#0f172a' }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center text-white/[0.05] font-bold uppercase tracking-[0.6em] text-4xl select-none">
+          <div className="absolute inset-0">
+            <Image 
+              src={before} 
+              alt="Before treatment"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover brightness-[0.85] saturate-[0.8]"
+            />
+            <div className="absolute inset-0 flex items-center justify-center text-white/[0.05] font-bold uppercase tracking-[0.6em] text-4xl select-none z-10">
               Initial Case
             </div>
           </div>
@@ -88,17 +95,19 @@ export function Transformation() {
       {/* Cinematic Overlays */}
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-16 mb-24">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-24 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto lg:mx-0"
           >
-            <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5 mb-8">
-              <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Clinical Mastery</span>
+            <div className="flex justify-center lg:justify-start mb-8">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5">
+                <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Clinical Mastery</span>
+              </div>
             </div>
-            <h3 className="text-6xl lg:text-8xl font-premium-serif text-white tracking-tight leading-[0.9]">
+            <h3 className="text-5xl md:text-6xl lg:text-8xl font-premium-serif text-white tracking-tight leading-[0.9]">
               Before & After <span className="serif-italic font-light text-premium-gold">Success</span>
             </h3>
           </motion.div>
@@ -107,7 +116,7 @@ export function Transformation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-white/50 font-light text-lg max-w-sm leading-relaxed"
+            className="text-white/50 font-light text-base md:text-lg max-w-sm leading-relaxed mx-auto lg:mx-0"
           >
             Witness the clinical precision and aesthetic harmony achieved in our recent orthodontic transformations.
           </motion.p>
@@ -122,8 +131,8 @@ export function Transformation() {
           >
             <GalleryItem 
               title="Aesthetic Space Closure" 
-              before="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800" 
-              after="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800" 
+              before="/ortho-placeholder-before.jpg" 
+              after="/ortho-placeholder-after.jpg" 
             />
           </motion.div>
           <motion.div
@@ -134,8 +143,8 @@ export function Transformation() {
           >
             <GalleryItem 
               title="Precision Aligner Therapy" 
-              before="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800" 
-              after="https://images.unsplash.com/photo-1616391182219-e080b4d1043a?auto=format&fit=crop&q=80&w=800" 
+              before="/ortho-placeholder-before-2.jpg" 
+              after="/ortho-placeholder-after-2.jpg" 
             />
           </motion.div>
         </div>

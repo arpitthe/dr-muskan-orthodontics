@@ -36,7 +36,7 @@ export function Services() {
     }
   }, []);
 
-  const cardWidth = 260;
+  const cardWidth = 200;
 
   // Scale down the card if the window height is too small to fit it comfortably
   useEffect(() => {
@@ -86,18 +86,20 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-end justify-between gap-12"
+            className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 text-center lg:text-left"
           >
-            <div className="max-w-3xl">
-              <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5 mb-8">
-                <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Clinical Excellence</span>
+            <div className="max-w-3xl mx-auto lg:mx-0">
+              <div className="flex justify-center lg:justify-start mb-8">
+                <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5">
+                  <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Clinical Excellence</span>
+                </div>
               </div>
-              <h3 className="text-6xl lg:text-8xl font-premium-serif text-white leading-[0.9] tracking-tight">
+              <h3 className="text-5xl md:text-6xl lg:text-8xl font-premium-serif text-white leading-[0.9] tracking-tight">
                 Specialized <span className="serif-italic font-light text-premium-gold">Ortho</span> Solutions
               </h3>
             </div>
-            <div className="md:text-right">
-              <p className="text-white/50 font-light text-lg max-w-sm ml-auto leading-relaxed">
+            <div className="lg:text-right max-w-sm mx-auto lg:mx-0">
+              <p className="text-white/50 font-light text-base md:text-lg leading-relaxed">
                 Experience the fusion of medical precision and aesthetic mastery with our curated range of treatments.
               </p>
             </div>
@@ -126,9 +128,6 @@ export function Services() {
                     <Link href={`/services/${service.slug}`} className="block" onClick={(e) => e.stopPropagation()}>
                       <h4 className="text-3xl md:text-5xl font-premium-serif text-white group-hover:translate-x-4 transition-transform duration-700 ease-[0.16, 1, 0.3, 1] hover:text-premium-gold transition-colors flex flex-wrap items-baseline gap-4">
                         <span>{service.title}</span>
-                        <span className="text-sm font-sans font-semibold text-premium-gold opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
-                          {service.price}
-                        </span>
                       </h4>
                     </Link>
                     <p className="text-sm text-white/40 font-light max-w-md opacity-0 group-hover:opacity-100 group-hover:translate-x-4 transition-all duration-700 delay-75">
@@ -222,50 +221,13 @@ export function Services() {
                 y: targetY
               }}
               transition={{ type: "spring", damping: 25, stiffness: 280, mass: 0.5 }}
-              className="fixed top-0 left-0 z-50 pointer-events-none hidden lg:flex flex-col w-[260px] rounded-[2rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.5)] ring-1 ring-white/20 bg-navy-950/90 backdrop-blur-xl group/p"
+              className="fixed top-0 left-0 z-50 pointer-events-none hidden lg:flex items-center justify-center w-[200px] rounded-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] ring-1 ring-premium-gold/30 bg-navy-950/95 backdrop-blur-xl py-4 px-6 text-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent z-10 pointer-events-none" />
-              <div className="w-full flex flex-col items-center justify-between p-6 md:p-8 text-center relative z-20">
-                <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay pointer-events-none" />
-                
-                {/* Upper section */}
-                <div className="flex flex-col items-center w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover/p:bg-premium-gold/10 transition-colors duration-700 relative">
-                    <div className="absolute inset-0 bg-premium-gold/20 blur-xl opacity-0 group-hover/p:opacity-50 transition-opacity" />
-                    {React.createElement(servicesData[hoveredService].icon, {
-                      className: "w-6 h-6 text-premium-gold relative z-10"
-                    })}
-                  </div>
-                  
-                  <span className="text-[8px] font-bold text-premium-gold uppercase tracking-[0.4em] mb-2.5 block">Singh Orthodontics</span>
-                  <h5 className="font-premium-serif text-xl text-white mb-1 leading-tight px-1">
-                    {servicesData[hoveredService].title}
-                  </h5>
-                  
-                  <div className="text-[10px] font-bold text-premium-gold bg-premium-gold/10 px-3 py-0.5 rounded-full border border-premium-gold/20 inline-block mb-3 font-sans uppercase tracking-wider">
-                    {servicesData[hoveredService].price}
-                  </div>
-                  
-                  <p className="text-[10px] text-white/50 leading-relaxed font-light mb-4 px-2">
-                    {servicesData[hoveredService].description}
-                  </p>
-                </div>
-                
-                {/* Lower section */}
-                <div className="flex flex-col items-center gap-2.5 w-full mt-auto">
-                  <div className="flex items-center gap-2 justify-center w-full">
-                    <div className="w-6 h-px bg-white/10" />
-                    <span className="text-[7px] font-bold text-white/30 uppercase tracking-widest">Medical Aesthetics</span>
-                    <div className="w-6 h-px bg-white/10" />
-                  </div>
-                  
-                  <div className="w-full h-px bg-white/5 my-0.5" />
-                  
-                  <div className="flex items-center gap-1.5 justify-center text-premium-gold text-[8px] font-bold uppercase tracking-widest animate-pulse">
-                    <Sparkles className="w-2.5 h-2.5" />
-                    <span>View Precise Details</span>
-                  </div>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-premium-gold/10 via-transparent to-premium-gold/10 pointer-events-none" />
+              <div className="relative z-10 flex flex-col items-center justify-center">
+                <span className="text-sm font-semibold text-premium-gold tracking-wide font-sans">
+                  {servicesData[hoveredService].price}
+                </span>
               </div>
             </motion.div>
           )}

@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, Quote, Play } from "lucide-react";
+import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 import InfiniteMenu from "@/components/ui/motion/InfiniteMenu";
 
 const testimonials = [
@@ -11,42 +12,42 @@ const testimonials = [
     role: "Invisalign Patient",
     review: "Dr. Muskan is incredibly detail-oriented. My aligner treatment was smooth, and the results are better than I imagined. Highly recommend!",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=300&h=300"
+    image: "/images/testimonial-priya.jpg"
   },
   {
     name: "Rahul Verma",
     role: "Metal Braces",
     review: "The care I received for my complex bite issue was exceptional. Dr. Muskan explained every step clearly and made the process comfortable.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300&h=300"
+    image: "/images/testimonial-rahul.jpg"
   },
   {
     name: "Ananya Iyer",
     role: "Clear Braces",
     review: "Professional, gentle, and modern. The clinic uses the latest technology which made my treatment much faster than expected.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300&h=300"
+    image: "/images/testimonial-ananya.jpg"
   },
   {
     name: "Vikram Malhotra",
     role: "Retainer Therapy",
     review: "Superb experience! The retainer checkups and hygiene workflows are top-notch. Very clean and professional clinic.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300&h=300"
+    image: "/images/testimonial-vikram.jpg"
   },
   {
     name: "Meera Sen",
     role: "Ceramic Braces",
     review: "My ceramic braces were completely discreet and highly effective. Dr. Muskan's aesthetic precision is gold-standard.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300&h=300"
+    image: "/images/testimonial-meera.jpg"
   },
   {
     name: "Siddharth Roy",
     role: "Smile Design",
     review: "Fascinating technology. The digital smile planning and facial harmony analysis showed me my final result before we even started.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1620122303020-43ec4b6cf7f8?auto=format&fit=crop&q=80&w=300&h=300"
+    image: "/images/testimonial-siddharth.jpg"
   },
 ];
 
@@ -87,18 +88,20 @@ export function Testimonials() {
       {/* Cinematic Background Elements */}
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-end justify-between mb-24 gap-12">
-          <div className="lg:w-1/2">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5 mb-8">
-              <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Patient Stories</span>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12 text-center lg:text-left">
+          <div className="lg:w-1/2 mx-auto lg:mx-0">
+            <div className="flex justify-center lg:justify-start mb-8">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5">
+                <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Patient Stories</span>
+              </div>
             </div>
-            <h3 className="text-5xl lg:text-7xl font-premium-serif text-white leading-[0.95] tracking-tight">
-              Testimonials <br /> 
+            <h3 className="text-4xl md:text-5xl lg:text-7xl font-premium-serif text-white leading-[0.95] tracking-tight">
+              Testimonials <br className="hidden lg:block" /> 
               <span className="serif-italic font-light text-premium-gold">of Excellence</span>
             </h3>
           </div>
-          <div className="lg:w-1/2">
-            <p className="text-white/40 max-w-xl text-lg font-light leading-relaxed">
+          <div className="lg:w-1/2 max-w-xl mx-auto lg:mx-0">
+            <p className="text-white/40 text-base md:text-lg font-light leading-relaxed">
               Real feedback from patients who have transformed their smiles and 
               lives through our <span className="text-white/70 italic">bespoke orthodontic care</span>.
             </p>
@@ -144,7 +147,13 @@ export function Testimonials() {
 
               <div className="flex items-center gap-6 pt-6 border-t border-white/5">
                 <div className="w-14 h-14 rounded-2xl bg-navy-900 border border-white/10 overflow-hidden relative shadow-xl group-hover:scale-105 transition-all duration-500 flex items-center justify-center">
-                  <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                  <Image 
+                    src={t.image} 
+                    alt={t.name} 
+                    width={56} 
+                    height={56} 
+                    className="w-full h-full object-cover" 
+                  />
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-white mb-1">{t.name}</h4>
@@ -201,36 +210,7 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Video Testimonial Placeholder */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative max-w-6xl mx-auto aspect-video rounded-[4rem] overflow-hidden group shadow-[0_50px_100px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
-        >
-          <div className="absolute inset-0 bg-premium-navy/60 group-hover:bg-premium-navy/30 transition-all duration-1000 z-10" />
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" />
-          
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-            <button className="w-32 h-32 bg-white/10 backdrop-blur-3xl border border-white/20 rounded-full flex items-center justify-center shadow-2xl relative group/btn overflow-hidden transition-all duration-700 hover:scale-110">
-              <div className="absolute inset-0 bg-premium-gold opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700" />
-              <Play className="w-10 h-10 text-white relative z-10 ml-2 group-hover/btn:fill-white transition-all" />
-            </button>
-            <div className="mt-12 text-center text-white">
-              <h4 className="text-4xl font-premium-serif mb-4 leading-tight">Patient <span className="serif-italic text-premium-gold">Success</span> Story</h4>
-              <p className="text-[11px] text-white/50 font-bold uppercase tracking-[0.5em]">Watch The Elite Transformation Journey</p>
-            </div>
-          </div>
-          
-          <div className="absolute bottom-12 left-12 right-12 flex justify-between items-center z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-             <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent mx-4" />
-             <div className="text-[10px] text-white/30 uppercase tracking-[0.2em]">Cinematic Production</div>
-             <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent mx-4" />
-          </div>
-        </motion.div>
-      </div>
+
     </section>
   );
 }

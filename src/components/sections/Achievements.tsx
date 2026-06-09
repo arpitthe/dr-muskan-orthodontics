@@ -57,14 +57,16 @@ export function Achievements() {
   return (
     <section id="research" className="relative py-40 bg-premium-navy overflow-hidden">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('/textures/noise.svg')]" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-24">
           {/* Awards & Honors Side */}
-          <div className="lg:w-2/5">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5 mb-8">
-              <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Academic Prestige</span>
+          <div className="lg:w-2/5 text-center lg:text-left">
+            <div className="flex justify-center lg:justify-start mb-8">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5">
+                <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">Academic Prestige</span>
+              </div>
             </div>
             <h3 className="text-5xl lg:text-7xl font-premium-serif text-white tracking-tight mb-12 leading-[0.9]">
               Honors & <span className="serif-italic font-light text-premium-gold">Distinctions</span>
@@ -79,8 +81,8 @@ export function Achievements() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2, duration: 1 }}
                 >
-                  <SpotlightCard className="bg-white/5 backdrop-blur-3xl p-10 rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden">
-                    <div className="w-14 h-14 bg-navy-900 border border-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-xl relative z-10 group-hover:border-premium-gold/30 transition-colors">
+                  <SpotlightCard className="bg-white/5 backdrop-blur-3xl p-10 rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="w-14 h-14 bg-navy-900 border border-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-xl relative z-10 group-hover:border-premium-gold/30 transition-colors mx-auto lg:mx-0">
                       <honor.icon className="w-6 h-6 text-premium-gold" />
                     </div>
                     <h4 className="text-2xl font-bold text-white mb-3 relative z-10">{honor.title}</h4>
@@ -95,9 +97,9 @@ export function Achievements() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
             >
-              <SpotlightCard className="mt-16 p-10 rounded-[2.5rem] bg-navy-950 border border-white/5 text-white relative overflow-hidden shadow-2xl">
-                <div className="relative z-10">
-                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center mb-6">
+              <SpotlightCard className="mt-16 p-10 rounded-[2.5rem] bg-navy-950 border border-white/5 text-white relative overflow-hidden shadow-2xl flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div className="relative z-10 flex flex-col items-center lg:items-start">
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center mb-6 mx-auto lg:mx-0">
                     <Award className="w-6 h-6 text-premium-gold" />
                   </div>
                   <h4 className="text-2xl font-premium-serif mb-4">Clinical Excellence</h4>
@@ -111,10 +113,10 @@ export function Achievements() {
           </div>
 
           {/* Publications Side */}
-          <div className="lg:w-3/5">
-            <h3 className="text-3xl font-premium-serif text-white/90 mb-12 flex items-center gap-6">
+          <div className="lg:w-3/5 w-full mt-20 lg:mt-0">
+            <h3 className="text-2xl md:text-3xl font-premium-serif text-white/90 mb-12 flex items-center justify-center lg:justify-start gap-6 text-center lg:text-left">
               Scientific Publications
-              <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
+              <div className="hidden sm:block h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
             </h3>
             
             <div className="grid grid-cols-1 gap-6">
@@ -126,9 +128,9 @@ export function Achievements() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.8 }}
                   whileHover={{ x: 15 }}
-                  className="group flex flex-col md:flex-row md:items-center gap-8 p-8 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-premium-gold/30 hover:bg-white/[0.04] transition-all duration-500 cursor-pointer shadow-xl"
+                  className="group flex flex-col md:flex-row md:items-center gap-8 p-8 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-premium-gold/30 hover:bg-white/[0.04] transition-all duration-500 cursor-pointer shadow-xl text-center md:text-left items-center md:items-start"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-navy-900 border border-white/10 flex items-center justify-center group-hover:bg-premium-gold group-hover:border-premium-gold transition-all duration-700 relative overflow-hidden">
+                  <div className="w-16 h-16 rounded-2xl bg-navy-900 border border-white/10 flex items-center justify-center group-hover:bg-premium-gold group-hover:border-premium-gold transition-all duration-700 relative overflow-hidden flex-shrink-0">
                     <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
                     <pub.icon className="w-7 h-7 text-premium-gold group-hover:text-white transition-colors relative z-10" />
                   </div>
@@ -151,16 +153,16 @@ export function Achievements() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="mt-12 flex items-center gap-6 text-white/30 text-[10px] font-bold uppercase tracking-[0.3em]"
+              className="mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 text-white/30 text-[10px] font-bold uppercase tracking-[0.3em] text-center sm:text-left"
             >
-              <div className="flex -space-x-3">
+              <div className="flex -space-x-3 justify-center">
                 {[1,2,3].map(i => (
                   <div key={i} className="w-10 h-10 rounded-full border-2 border-premium-navy bg-navy-800 flex items-center justify-center text-[9px] text-premium-gold shadow-lg font-bold">
                     P{i}
                   </div>
                 ))}
               </div>
-              <div className="h-px w-12 bg-white/10" />
+              <div className="h-px w-12 bg-white/10 hidden sm:block" />
               <span>Contribute to over 10+ published research initiatives</span>
             </motion.div>
           </div>

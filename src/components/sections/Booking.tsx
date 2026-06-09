@@ -25,6 +25,7 @@ export function Booking() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedTreatment, setSelectedTreatment] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
 
   React.useEffect(() => {
     // 1. Listen for custom events (SPA internal)
@@ -97,7 +98,7 @@ export function Booking() {
 
       <div className="container mx-auto px-6 relative z-10">
         <SpotlightCard className="max-w-3xl mx-auto bg-white/[0.03] backdrop-blur-3xl rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border border-white/10 p-10 md:p-16 relative overflow-hidden ring-1 ring-white/5">
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('/textures/noise.svg')]" />
           <div className="absolute -top-24 -left-24 w-64 h-64 bg-premium-gold/10 rounded-full blur-[80px]" />
           <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-navy-500/10 rounded-full blur-[80px]" />
 
@@ -185,7 +186,11 @@ export function Booking() {
                         required
                         name="date"
                         type="date" 
-                        className="w-full bg-navy-950/40 border border-white/10 hover:border-white/20 focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 focus:bg-navy-950/80 rounded-2xl px-6 py-4 text-white outline-none transition-all duration-300 [color-scheme:dark]"
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        className={`w-full bg-navy-950/40 border border-white/10 hover:border-white/20 focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 focus:bg-navy-950/80 rounded-2xl px-6 py-4 outline-none transition-all duration-300 [color-scheme:dark] ${
+                          selectedDate ? "text-white" : "text-white/20"
+                        }`}
                       />
                     </div>
                   </div>
@@ -198,7 +203,9 @@ export function Booking() {
                         name="treatment"
                         value={selectedTreatment}
                         onChange={(e) => setSelectedTreatment(e.target.value)}
-                        className="w-full bg-navy-950/40 border border-white/10 hover:border-white/20 focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 focus:bg-navy-950/80 rounded-2xl px-6 py-4 text-white outline-none transition-all duration-300 appearance-none cursor-pointer"
+                        className={`w-full bg-navy-950/40 border border-white/10 hover:border-white/20 focus:border-premium-gold focus:ring-2 focus:ring-premium-gold/20 focus:bg-navy-950/80 rounded-2xl px-6 py-4 outline-none transition-all duration-300 appearance-none cursor-pointer ${
+                          selectedTreatment ? "text-white" : "text-white/20"
+                        }`}
                       >
                         <option value="" className="bg-navy-950 text-white/50">Select a specialized treatment</option>
                         {treatmentTypes.map(t => <option key={t} value={t} className="bg-navy-950 text-white">{t}</option>)}

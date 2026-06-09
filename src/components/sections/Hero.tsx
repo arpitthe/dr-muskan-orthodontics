@@ -101,7 +101,7 @@ export function Hero() {
       </motion.button>
 
       {/* Grain Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-30 mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-30 mix-blend-overlay bg-[url('/textures/noise.svg')]" />
     </section>
   );
 }

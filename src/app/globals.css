@@ -24,8 +24,8 @@
   --color-premium-gray: #e2e8f0;
 
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --font-premium-serif: var(--font-cormorant), serif;
+  --font-cursive: var(--font-alex-brush), cursive;
 }
 
 @layer base {

@@ -69,6 +69,10 @@ export function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  if (pathname && pathname.startsWith("/services/")) {
+    return null;
+  }
+
   return (
     <nav
       className={cn(
