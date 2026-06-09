@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import emailjs from "@emailjs/browser";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder.supabase.co";
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder";
@@ -24,8 +23,9 @@ export async function POST(req: Request) {
     // EmailJS, we'll suggest staying with client-side or use a server-side equivalent.
     
     return NextResponse.json({ success: true });
-  } catch (error: any) {
-    console.error("API Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error) {
+    const err = error as Error;
+    console.error("API Error:", err);
+    return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

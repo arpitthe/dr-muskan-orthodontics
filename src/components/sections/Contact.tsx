@@ -70,23 +70,34 @@ export function Contact() {
 
           <div className="h-[700px] rounded-[4rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.6)] border border-white/10 bg-navy-900 relative group ring-1 ring-white/5">
             {/* Google Maps Cinematic Wrapper */}
-            <div className="absolute inset-0 bg-[url('https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/76.3262,21.8256,14/1000x1000?access_token=none')] bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105" />
-            <div className="absolute inset-0 bg-premium-navy/40 group-hover:bg-transparent transition-all duration-1000" />
-            <div className="absolute inset-0 bg-gradient-to-t from-premium-navy via-transparent to-transparent opacity-60" />
+            <iframe
+              src="https://maps.google.com/maps?q=21.8256,76.3262&hl=en&z=15&output=embed"
+              className="absolute inset-0 w-full h-full border-0 opacity-60 group-hover:opacity-100 transition-all duration-1000 transform group-hover:scale-105 filter invert-[90%] hue-rotate-[180deg] brightness-[80%] contrast-[120%]"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="absolute inset-0 bg-premium-navy/40 group-hover:bg-transparent transition-all duration-1000 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-premium-navy via-transparent to-transparent opacity-60 pointer-events-none" />
             
-            <div className="absolute bottom-12 left-12 right-12 bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] shadow-2xl flex items-center justify-between group/card overflow-hidden">
-               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+            <a 
+              href="https://share.google/QteoenM1ZzwpA22Jx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-12 left-12 right-12 bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] shadow-2xl flex items-center justify-between group/card overflow-hidden hover:border-premium-gold/30 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10">
                 <h4 className="text-2xl font-premium-serif text-white mb-2">Get Directions</h4>
-                <p className="text-[10px] text-premium-gold uppercase tracking-[0.4em] font-bold">Open in Google Maps Professional</p>
+                <p className="text-[10px] text-premium-gold uppercase tracking-[0.4em] font-bold">Open in Google Maps</p>
               </div>
-              <motion.button 
+              <motion.div 
                 whileHover={{ scale: 1.1, rotate: 10 }}
                 className="w-16 h-16 bg-premium-gold rounded-full flex items-center justify-center text-white shadow-[0_10px_30px_rgba(197,160,89,0.5)] relative z-10"
               >
                 <ExternalLink className="w-6 h-6" />
-              </motion.button>
-            </div>
+              </motion.div>
+            </a>
 
             {/* Cinematic Overlay Text */}
             <div className="absolute top-12 left-12 opacity-30 pointer-events-none">

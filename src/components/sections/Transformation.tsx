@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { MoveHorizontal, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { MoveHorizontal, Sparkles, ArrowRight } from "lucide-react";
+import { scrollToSection } from "@/lib/scrollTo";
 
 const GalleryItem = ({ title, before, after }: { title: string, before: string, after: string }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -20,7 +21,7 @@ const GalleryItem = ({ title, before, after }: { title: string, before: string, 
     <div className="relative group p-6 bg-white/[0.03] backdrop-blur-xl rounded-[2.5rem] border border-white/10 shadow-2xl transition-all duration-700 hover:bg-white/[0.05]">
       <div 
         ref={containerRef}
-        className="relative aspect-[16/11] rounded-2xl overflow-hidden cursor-ew-resize select-none ring-1 ring-white/10"
+        className="relative aspect-[16/11] rounded-2xl overflow-hidden cursor-ew-resize select-none ring-1 ring-white/10 touch-none group/slider"
         onMouseMove={handleMove}
         onTouchMove={handleMove}
       >
@@ -30,7 +31,7 @@ const GalleryItem = ({ title, before, after }: { title: string, before: string, 
             className="w-full h-full bg-cover bg-center" 
             style={{ backgroundImage: `url(${after})`, backgroundColor: '#0A1128' }}
           >
-            <div className="absolute inset-0 flex items-center justify-center text-white/5 font-bold uppercase tracking-[0.5em] text-4xl select-none">
+            <div className="absolute inset-0 flex items-center justify-center text-white/[0.03] font-bold uppercase tracking-[0.6em] text-4xl select-none">
               Singh Artistry
             </div>
           </div>
@@ -42,30 +43,30 @@ const GalleryItem = ({ title, before, after }: { title: string, before: string, 
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
           <div 
-            className="w-full h-full bg-cover bg-center grayscale brightness-75" 
+            className="w-full h-full bg-cover bg-center brightness-[0.85] saturate-[0.8]" 
             style={{ backgroundImage: `url(${before})`, backgroundColor: '#0f172a' }}
           >
-            <div className="absolute inset-0 flex items-center justify-center text-white/10 font-bold uppercase tracking-[0.5em] text-4xl select-none">
-              Case Study
+            <div className="absolute inset-0 flex items-center justify-center text-white/[0.05] font-bold uppercase tracking-[0.6em] text-4xl select-none">
+              Initial Case
             </div>
           </div>
         </div>
 
         {/* Slider Handle */}
         <div 
-          className="absolute top-0 bottom-0 w-px bg-premium-gold/50 shadow-[0_0_15px_rgba(197,160,89,0.5)] z-20"
+          className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-premium-gold/40 via-premium-gold to-premium-gold/40 shadow-[0_0_15px_rgba(197,160,89,0.7)] z-20"
           style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-premium-gold rounded-full shadow-[0_0_30px_rgba(197,160,89,0.4)] flex items-center justify-center border border-white/20 text-premium-navy transition-all duration-500 group-hover:scale-110">
-            <MoveHorizontal className="w-6 h-6" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-premium-navy/90 rounded-full shadow-[0_0_20px_rgba(197,160,89,0.5)] flex items-center justify-center border border-premium-gold/50 text-premium-gold transition-all duration-300 group-hover/slider:scale-110 group-hover/slider:border-premium-gold group-active/slider:scale-95">
+            <MoveHorizontal className="w-5 h-5" />
           </div>
         </div>
 
         {/* Labels */}
-        <div className="absolute bottom-6 left-6 bg-premium-navy/80 backdrop-blur-xl border border-white/10 px-4 py-1.5 rounded-full text-[9px] font-bold text-white uppercase tracking-[0.2em] shadow-xl">
+        <div className="absolute top-6 left-6 bg-navy-950/80 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full text-[9px] font-bold text-white/70 uppercase tracking-[0.2em] shadow-xl">
           Initial State
         </div>
-        <div className="absolute bottom-6 right-6 bg-premium-gold/90 backdrop-blur-xl border border-white/20 px-4 py-1.5 rounded-full text-[9px] font-bold text-premium-navy uppercase tracking-[0.2em] shadow-xl">
+        <div className="absolute top-6 right-6 bg-premium-gold/90 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-[9px] font-bold text-premium-navy uppercase tracking-[0.2em] shadow-xl">
           Final Result
         </div>
       </div>
@@ -133,11 +134,30 @@ export function Transformation() {
           >
             <GalleryItem 
               title="Precision Aligner Therapy" 
-              before="https://images.unsplash.com/photo-1598256989490-9f17042898c6?auto=format&fit=crop&q=80&w=800" 
-              after="https://images.unsplash.com/photo-1629909613184-7ddf3d928426?auto=format&fit=crop&q=80&w=800" 
+              before="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800" 
+              after="https://images.unsplash.com/photo-1616391182219-e080b4d1043a?auto=format&fit=crop&q=80&w=800" 
             />
           </motion.div>
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 flex flex-col items-center gap-8"
+        >
+          <button 
+            onClick={() => scrollToSection("book")}
+            className="group flex flex-col items-center gap-6 cursor-pointer"
+          >
+            <div className="h-20 px-16 bg-white text-premium-navy rounded-full font-bold text-sm tracking-[0.4em] uppercase hover:bg-premium-gold hover:text-white transition-all duration-700 shadow-2xl flex items-center gap-6 relative overflow-hidden btn-shine">
+               <div className="absolute inset-0 bg-premium-gold translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" />
+               START YOUR TRANSFORMATION
+               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            </div>
+            <span className="text-[10px] font-bold text-white/30 uppercase tracking-[0.5em] group-hover:text-premium-gold transition-colors">Private Consultation Waiting</span>
+          </button>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0 }}

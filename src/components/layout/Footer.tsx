@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { 
   Instagram, 
   Facebook, 
@@ -10,7 +10,6 @@ import {
   Phone, 
   Mail, 
   MessageCircle, 
-  MapPin, 
   ArrowUpRight,
   Globe
 } from "lucide-react";
@@ -25,12 +24,12 @@ const navigationLinks = [
   { name: "The Clinic", href: "#about" },
   { name: "Procedures", href: "#services" },
   { name: "Transformations", href: "#transformations" },
-  { name: "Clinical Journal", href: "#blog" },
+  { name: "Dental Blogs", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ];
 
 export function Footer() {
-  const containerVariants: any = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -41,7 +40,7 @@ export function Footer() {
     },
   };
 
-  const itemVariants: any = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 

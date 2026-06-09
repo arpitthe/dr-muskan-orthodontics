@@ -3,8 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, Award, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Briefcase, CheckCircle2 } from "lucide-react";
 import { Counter } from "@/components/ui/Counter";
+import { scrollToSection } from "@/lib/scrollTo";
 
 const timeline = [
   {
@@ -42,11 +43,11 @@ export function About() {
     <section id="about" className="relative py-32 bg-premium-navy overflow-hidden">
       {/* Cinematic Background Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-24 items-center mb-32">
           {/* Image Side */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -58,7 +59,7 @@ export function About() {
               <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b border-r border-premium-gold/40 transition-all duration-700 group-hover:-bottom-8 group-hover:-right-8" />
               <div className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)] ring-1 ring-white/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=1000"
+                  src="/images/drmuskan.jpeg"
                   alt="Dr. Muskan Singh"
                   width={1000}
                   height={1200}
@@ -80,23 +81,29 @@ export function About() {
               <div className="inline-block px-4 py-1.5 rounded-full border border-premium-gold/20 bg-premium-gold/5 mb-8">
                 <span className="text-[10px] font-bold tracking-[0.4em] text-premium-gold uppercase">The Art of Care</span>
               </div>
-              
-              <h3 className="text-6xl lg:text-8xl font-premium-serif text-white leading-[0.95] mb-10 tracking-tight">
+
+              <motion.h3 
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-6xl lg:text-8xl font-premium-serif text-white leading-[0.95] mb-10 tracking-tight"
+              >
                 Dr. Muskan <span className="serif-italic font-light text-premium-gold">Singh</span>
-              </h3>
+              </motion.h3>
 
               <div className="flex items-center gap-6 mb-12">
                 <span className="text-sm font-bold text-white tracking-[0.2em] uppercase">MDS Orthodontics</span>
                 <div className="w-16 h-px bg-gradient-to-r from-premium-gold to-transparent" />
                 <span className="text-white/40 italic font-medium">Smile Specialist</span>
               </div>
-              
+
               <p className="text-xl text-white/70 font-light leading-relaxed mb-12 max-w-xl">
-                With a passion for creating facial harmony and a commitment to clinical perfection, 
-                Dr. Muskan Singh specializes in transforming smiles through <span className="text-white font-medium">advanced orthodontics</span> 
+                With a passion for creating facial harmony and a commitment to clinical perfection,
+                Dr. Muskan Singh specializes in transforming smiles through <span className="text-white font-medium">advanced orthodontics</span>
                 and dentofacial orthopedics.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mb-16">
                 {[
                   "Digital Aligner Specialist",
@@ -104,8 +111,8 @@ export function About() {
                   "Dentofacial Orthopedics",
                   "Evidence-Based Strategy",
                 ].map((skill, idx) => (
-                  <motion.div 
-                    key={skill} 
+                  <motion.div
+                    key={skill}
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
@@ -126,7 +133,7 @@ export function About() {
                   { label: "Digital Designs", value: 250, suffix: "+" },
                   { label: "Research Papers", value: 6, suffix: "" },
                 ].map((stat, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={stat.label}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -141,13 +148,38 @@ export function About() {
                   </motion.div>
                 ))}
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col sm:flex-row items-center gap-8 mt-16"
+              >
+                <button
+                  onClick={() => scrollToSection("book")}
+                  className="h-16 px-12 bg-white text-premium-navy rounded-full font-bold text-xs tracking-[0.3em] uppercase hover:bg-premium-gold hover:text-white transition-all duration-500 shadow-xl group cursor-pointer flex items-center gap-4"
+                >
+                  Request Consultation
+                  <div className="w-8 h-8 rounded-full bg-premium-navy/5 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="text-[10px] font-bold text-white uppercase tracking-[0.4em] hover:text-premium-gold transition-colors duration-500 flex items-center gap-4 group cursor-pointer"
+                >
+                  View Clinical Solutions
+                  <div className="w-10 h-px bg-white/20 group-hover:w-16 group-hover:bg-premium-gold transition-all duration-500" />
+                </button>
+              </motion.div>
             </motion.div>
           </div>
         </div>
 
         {/* Timeline Section */}
         <div className="pt-32 border-t border-white/5">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-center mb-24"
@@ -168,9 +200,8 @@ export function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 1, delay: index * 0.1 }}
-                  className={`flex flex-col md:flex-row items-center gap-12 ${
-                    index % 2 === 1 ? "md:flex-row-reverse" : ""
-                  }`}
+                  className={`flex flex-col md:flex-row items-center gap-12 ${index % 2 === 1 ? "md:flex-row-reverse" : ""
+                    }`}
                 >
                   <div className="md:w-1/2 text-center md:text-right px-4">
                     <div className={`md:flex flex-col ${index % 2 === 1 ? "md:items-start" : "md:items-end"}`}>

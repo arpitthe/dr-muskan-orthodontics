@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BookOpen, Trophy, GraduationCap, Microscope, Award } from "lucide-react";
+import { SpotlightCard } from "@/components/ui/motion/SpotlightCard";
 
 const publications = [
   {
@@ -77,15 +78,15 @@ export function Achievements() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2, duration: 1 }}
-                  className="bg-white/5 backdrop-blur-3xl p-10 rounded-[2rem] border border-white/10 shadow-2xl group relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="w-14 h-14 bg-navy-900 border border-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-xl relative z-10 group-hover:border-premium-gold/30 transition-colors">
-                    <honor.icon className="w-6 h-6 text-premium-gold" />
-                  </div>
-                  <h4 className="text-2xl font-bold text-white mb-3 relative z-10">{honor.title}</h4>
-                  <div className="text-[10px] font-bold text-premium-gold uppercase tracking-[0.2em] mb-6 relative z-10">{honor.event}</div>
-                  <p className="text-white/40 text-sm leading-relaxed font-light relative z-10">{honor.description}</p>
+                  <SpotlightCard className="bg-white/5 backdrop-blur-3xl p-10 rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden">
+                    <div className="w-14 h-14 bg-navy-900 border border-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-xl relative z-10 group-hover:border-premium-gold/30 transition-colors">
+                      <honor.icon className="w-6 h-6 text-premium-gold" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-white mb-3 relative z-10">{honor.title}</h4>
+                    <div className="text-[10px] font-bold text-premium-gold uppercase tracking-[0.2em] mb-6 relative z-10">{honor.event}</div>
+                    <p className="text-white/40 text-sm leading-relaxed font-light relative z-10">{honor.description}</p>
+                  </SpotlightCard>
                 </motion.div>
               ))}
             </div>
@@ -93,18 +94,19 @@ export function Achievements() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="mt-16 p-10 rounded-[2.5rem] bg-navy-950 border border-white/5 text-white relative overflow-hidden group shadow-2xl"
             >
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center mb-6">
-                  <Award className="w-6 h-6 text-premium-gold" />
+              <SpotlightCard className="mt-16 p-10 rounded-[2.5rem] bg-navy-950 border border-white/5 text-white relative overflow-hidden shadow-2xl">
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-premium-gold/20 rounded-full flex items-center justify-center mb-6">
+                    <Award className="w-6 h-6 text-premium-gold" />
+                  </div>
+                  <h4 className="text-2xl font-premium-serif mb-4">Clinical Excellence</h4>
+                  <p className="text-white/40 text-sm leading-relaxed font-light">
+                    Recognized for pioneering contribution to <span className="text-white/70 italic">innovation</span> in Orthodontic treatment strategies and patient interaction models.
+                  </p>
                 </div>
-                <h4 className="text-2xl font-premium-serif mb-4">Clinical Excellence</h4>
-                <p className="text-white/40 text-sm leading-relaxed font-light">
-                  Recognized for pioneering contribution to <span className="text-white/70 italic">innovation</span> in Orthodontic treatment strategies and patient interaction models.
-                </p>
-              </div>
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-premium-gold/5 rounded-full blur-[80px]" />
+                <div className="absolute -top-24 -right-24 w-64 h-64 bg-premium-gold/5 rounded-full blur-[80px]" />
+              </SpotlightCard>
             </motion.div>
           </div>
 
