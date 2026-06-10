@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { LoadingProgress } from "@/components/layout/LoadingProgress";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,6 +83,7 @@ export default function RootLayout({
           </PageTransition>
           <Footer />
         </SmoothScroll>
+        <SpeedInsights />
       </body>
     </html>
   );
