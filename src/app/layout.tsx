@@ -11,12 +11,14 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   style: ["normal", "italic"],
+  display: "swap",
 });
 
 const alexBrush = Alex_Brush({
@@ -24,6 +26,7 @@ const alexBrush = Alex_Brush({
   weight: "400",
   subsets: ["latin"],
   preload: false,
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -66,7 +69,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${cormorant.variable} ${alexBrush.variable} scroll-smooth antialiased`}
+      className={`${geistSans.variable} ${cormorant.variable} ${alexBrush.variable} antialiased`}
     >
       <head>
         <script

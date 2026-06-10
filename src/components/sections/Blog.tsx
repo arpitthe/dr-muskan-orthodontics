@@ -210,13 +210,16 @@ export function Blog() {
                   <SpotlightCard className="p-6 bg-white/[0.01] border border-white/5 rounded-[2.5rem] hover:bg-white/[0.03] transition-all duration-700 shadow-2xl h-full flex flex-col justify-between relative overflow-hidden">
                     <div>
                       {/* Image container */}
-                      <div className="relative aspect-[16/11] rounded-2xl overflow-hidden mb-8 shadow-2xl ring-1 ring-white/10">
+                      <div 
+                        className="relative aspect-[16/11] rounded-2xl overflow-hidden mb-8 shadow-2xl ring-1 ring-white/10"
+                        style={{ aspectRatio: "16 / 11" }}
+                      >
                         <div className="absolute inset-0 bg-premium-navy/40 group-hover:bg-transparent transition-colors duration-700 z-10" />
                         <Image 
                           src={article.image} 
                           alt={article.title}
                           width={800}
-                          height={500}
+                          height={550}
                           className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-[1500ms] grayscale-[0.2] group-hover:grayscale-0" 
                         />
                         

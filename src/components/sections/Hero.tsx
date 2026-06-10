@@ -64,7 +64,7 @@ export function Hero() {
 
           <h1 className="text-7xl lg:text-9xl font-premium-serif text-white leading-[0.9] select-none tracking-tighter">
             <motion.span
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               className="block"
@@ -72,7 +72,7 @@ export function Hero() {
               Precision <span className="serif-italic font-light">Artistry</span>
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="block text-premium-gold/90"

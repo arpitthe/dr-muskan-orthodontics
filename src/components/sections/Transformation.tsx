@@ -23,6 +23,7 @@ const GalleryItem = ({ title, before, after }: { title: string, before: string, 
       <div 
         ref={containerRef}
         className="relative aspect-[16/11] rounded-2xl overflow-hidden cursor-ew-resize select-none ring-1 ring-white/10 touch-none group/slider"
+        style={{ aspectRatio: "16 / 11" }}
         onMouseMove={handleMove}
         onTouchMove={handleMove}
       >

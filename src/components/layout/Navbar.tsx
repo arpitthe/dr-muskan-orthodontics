@@ -76,9 +76,9 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-6",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-5",
         isScrolled
-          ? "bg-navy-950/50 backdrop-blur-3xl py-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+          ? "bg-navy-950/50 backdrop-blur-3xl shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent"
       )}
     >

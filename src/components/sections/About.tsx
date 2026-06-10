@@ -57,7 +57,10 @@ export function About() {
             <div className="relative group">
               <div className="absolute -top-6 -left-6 w-32 h-32 border-t border-l border-premium-gold/40 transition-all duration-700 group-hover:-top-8 group-hover:-left-8" />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b border-r border-premium-gold/40 transition-all duration-700 group-hover:-bottom-8 group-hover:-right-8" />
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)] ring-1 ring-white/10">
+              <div 
+                className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)] ring-1 ring-white/10 aspect-[5/6] w-full"
+                style={{ aspectRatio: "5/6" }}
+              >
                 <Image
                   src="/images/drmuskan.jpeg"
                   alt="Dr. Muskan Singh"
